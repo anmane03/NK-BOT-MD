@@ -1,4 +1,4 @@
-import e from"../lib/database.js";import a from"node-fetch";let cooldown=6e5,handler=async(o,{conn:r})=>{let t=await (await a("https://random-data-api.com/api/v2/addresses")).json(),n=e.data.users[o.sender],$=6e5-(new Date-n.lastadventure);if(n.health<80)return o.reply(`
+import e from"../lib/database.js";import a from"node-fetch";let cooldown=6e5,handler=async(o,{conn:r})=>{let t=await (await a("https://random-data-api.com/api/v2/addresses")).json(),n=e.data.users[o.sender],$=6e5-(new Date-n.lastadventure);if(n.salud<80)return o.reply(`
 Requiere al menos 80 de ❤️Salud para la aventura!!
 por favor compre ❤️Salud primero, use el comando:
 
