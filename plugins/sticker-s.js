@@ -2,7 +2,7 @@
 [ By @NeKosmic || https://github.com/NeKosmic/ ]
 **/
 import{sticker as e}from"../lib/sticker.js";import t from"../lib/uploadFile.js";import o from"../lib/uploadImage.js";import{webp2png as a}from"../lib/webp2mp4.js";import i from"moment-timezone";let handler=async(r,{conn:n,args:d,text:s,command:l,groupMetadata:m})=>{let p=await n.getName(r.sender),u=i().tz(Intl.DateTimeFormat().resolvedOptions().timeZone).format("DD/MM/YY HH:mm:ss"),c=(p||"-").length>4?`🧰 ${p}
-`:"",g=(m||"-").subject.length>9?`
+`:"",g=(m.subject||"-").length>9?`
 ⚙️ ${m.subject}
 `:"",f=(s||"").length>0?`
 
