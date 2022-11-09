@@ -1,18 +1,17 @@
 /**
 [ By @NeKosmic || https://github.com/NeKosmic/ ]
 **/
-let handler=async(e,{conn:a,command:t,text:l})=>{if(!l)return e.reply(`Que desea buscar en Youtube?, Ejemplo de uso: 
+import{generateWAMessageFromContent as e}from"@adiwajshing/baileys";let handler=async(a,{conn:t,command:o,text:r})=>{if(!r)return a.reply(`Que desea buscar en Youtube?, Ejemplo de uso: 
 
-${Prefijo+t} mtc s3rl`);let r;await e.reply(MultiNK.Proces(await a.getName(e.sender)));let o=encodeURIComponent(l),i=pickRandom([0,1,2]);try{let p=await fetchJson(`https://latam-api.vercel.app/api/ytmp3_2?apikey=${MyApiKey}&q=${(await fetchJson(`https://latam-api.vercel.app/api/yts?apikey=${MyApiKey}&q=${o}`)).resultados[i].url}`),n=await getBuffer(p.logo);await a.sendMessage(e.chat,{text:`
-*✍️ Titulo:* ${p.titulo}
-*🗜️ Tama\xf1o:* ${p.peso}
-*🪀 Resultado:* ${i}/3
+${Prefijo+o} mtc s3rl`);let l;await a.reply(MultiNK.Proces(await t.getName(a.sender)));let i=encodeURIComponent(r);try{let s=await fetchJson(`https://latam-api.vercel.app/api/ytplay2?apikey=${MyApiKey}&q=${i}`),n=await getBuffer(s.logo),d=e(a.chat,{extendedTextMessage:{text:`
+*✍️ T\xedtulo:* ${s.titulo}
+*🗜️ Tama\xf1o:* ${s.peso+" Aprox."}
+*🎹 Autor:* ${s.autor}
 
-[⇆ㅤ◁ㅤㅤ❚❚ㅤㅤ▷ㅤ↻]
 
 
 _Enviando audio, espere..._
-`.trim()},{quoted:e}),a.sendMessage(e.chat,{audio:{url:p.descarga},mimetype:"audio/mp4",fileName:`${p.titulo}.mp3`,contextInfo:{externalAdReply:{title:`${p.titulo}`,body:`⇆ㅤㅤ◁ㅤㅤ❚❚ㅤㅤ▷ㅤㅤ↻`,previewType:"PHOTO",thumbnailUrl:"",thumbnail:n,sourceUrl:"https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA?sub_confirmation=1"}}},{quoted:e}).catch(a=>{e.reply(`Ocurrio un error, por favor use el comando:
+`.trim(),contextInfo:{externalAdReply:{title:s.titulo,body:"⇆ㅤㅤ◁ㅤㅤ❚❚ㅤㅤ▷ㅤㅤ↻",thumbnail:n,sourceUrl:"https://youtube.com/channel/UC_Pp8pT9vbT15k5_-i6oseA?sub_confirmation=1"}}}},{quoted:a});await t.relayMessage(a.chat,d.message,{messageId:d.key.id}),t.sendMessage(a.chat,{audio:{url:decodeURIComponent(s.descarga1)||s.descarga2},mimetype:"audio/mp4",fileName:`${s.titulo}.mp3`},{quoted:a}).catch(e=>{a.reply(`Ocurrio un error, por favor use el comando:
 
-${Prefijo}audio ${l}
-`)})}catch(u){e.reply(MultiNK.Error0())}};handler.help=["play <texto>"],handler.tags=["servicio"],handler.command=/^play$/i;export default handler;
+${Prefijo}audio ${r}
+`)})}catch(p){a.reply(MultiNK.Error0())}};handler.help=["play <texto>"],handler.tags=["servicio"],handler.command=/^play$/i;export default handler;
